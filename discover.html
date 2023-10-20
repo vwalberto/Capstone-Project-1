@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Discover</title>
+    <!-- CSS -->
+   
+</head>
+<body>
+   <style>
+        /* The switch - the box around the slider */
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        }
+
+        /* The slider */
+        .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        input:checked + .slider {
+        background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+        border-radius: 34px;
+        }
+
+        .slider.round:before {
+        border-radius: 50%;
+        }
+
+        .covid-p{
+        background: rgba(255, 84, 104, 0.3);
+        border-radius: 4%;
+        padding: 2px;
+        margin: 0 auto;
+        width: 90%;
+        
+        
+
+        }
+
+        /* Create two equal columns that floats next to each other */
+        * {
+  box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*load button*/
+.load-b{
+    text-align: center;    
+}
+
+result-search{
+    text-align: center;
+}
+
+.img1{
+    text-align: center;
+    
+    
+}
+
+.apt{
+    border-radius: 6px;
+}
+
+.airplane{
+    font-size:20px;
+}
+
+.prop-name{
+    background-color: #ccc;
+    height: 100px;
+    width: 250px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.search-n{
+    border-radius: 4px;
+    border: none;
+    height: 30px;
+    text-align: left;
+    
+}
+
+
+
+.margen{
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.info{
+    text-align: center;
+    border-radius: 4px;
+    border: none;
+    height: 30px; 
+}
+
+.title-1{
+    background-color: #ccc;
+    height: 40px;
+    width: 250px;
+    border-radius: 6px;
+    text-align: center;
+    
+}
+
+.acts{
+    
+    background-color: #fff;
+    border-radius: 6px;
+    width: 250px;
+    
+
+   
+    
+    
+    
+    
+    
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add an active class to highlight the current page */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  padding-top: 2%;
+  padding-bottom: 10%;
+  background-color:#0171d3;
+  
+  font-size: 16px;
+}
+
+.logo{
+  margin-left: 5%;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+}
+.logo_header{
+  display: flex;
+  margin-left: 2%;
+}
+
+.main_nav{
+  display: flex;
+  width: 50%;
+  float: right;
+  margin-right: 2%;
+  justify-content: space-between;
+  list-style: none;
+}
+.main_nav li:hover{
+  background-color: gray
+}
+
+.main_nav li{
+  display: inline;
+  color: #ffffff;
+}
+.main_nav li a{
+  color: #ffffff;
+}
+
+
+
+
+
+ 
+
+
+
+
+        
+    </style>
+    
+
+    <div>
+        <nav class="navbar">
+            <div class="logo_header">
+              <a href="#" class="logo">my Dream Place</a>
+              <button class="navbar_toggle">
+                
+              </button>
+            </div>
+        
+            
+            <ul class="main_nav">
+              <li>
+                <a href="#" class="nav_links">Home</a>
+              </li>
+              <li>
+                <a href="#" class="nav_links">Discover</a>
+              </li>
+              <li>
+                <a href="#" class="nav_links">Activities</a>
+              </li>
+              <li>
+                <a href="#" class="nav_links">About</a>
+              </li>
+              <li>
+                <a href="#" class="nav_links">Contact</a>
+              </li>
+            </ul>
+              
+          </nav>
+    </div>
+
+    <div>
+        <form class="info">
+            
+            <select>
+                <option>Melbourne</option>
+                <option>City 2</option>
+                <option>City 3</option>
+            </select>
+
+            <input type="date" />
+
+            <input type="date" />
+
+            <select>
+                <option>2 adult, 1 room</option>
+                <option>1 adult, 1 room</option>
+                <option>3 adult, 2 room</option>
+            </select>
+
+            <input type="submit" value="Search" />
+        </form>
+    </div>
+
+    <div class="margen" style="display: inline-block">
+        <div class="prop-name">
+            <h4 class="par">Search by property name</h4>
+            <form >
+                
+                <input class="search-n"   type="text" placeholder="eg. Beach westpalm" />
+            </form>
+        </div>
+
+        <div>
+            <h3>Filter by</h3>
+            <div >
+                <h4 class="title-1">Your budget per day</h4>
+                <form class="acts">
+                    
+                    <div >
+                        <input type="checkbox" />
+                        $ 0 - $ 200
+                        <span>200</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        $ 200 - $ 500
+                        <span>100</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        $ 500 - $ 1,000
+                        <span>15</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        $ 1,000 - $ 2,000
+                        <span>12</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        $ 2,000 - $ 5,000
+                        <span>230</span>
+                    </div>
+                    <div>
+                        <p>
+                            Set your own budget
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="acts">
+            <h3 class="title-1">Rating</h3>
+            <div>
+                <p>Show only ratings more than</p>
+                <p>
+                    <span>
+                        1
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                        </span>
+                    <span>
+                        2
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                        </span>
+                    </span>
+                    <span>
+                        3
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                        </span>
+                    </span>
+                    <span>
+                        4
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                        </span>
+                    </span>
+                    <span>
+                        5
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                        </span>
+                    </span>
+                </p>
+            </div>
+        </div>
+
+        <div>
+            <div class="acts">
+                <h4 class="title-1">Popular filters</h4>
+                <form>
+                    <div>
+                        <input type="checkbox" />
+                        Free cancellation
+                        <span>200</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        Spa
+                        <span>100</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        Beach front
+                        <span>15</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        Hot tub/jacuzzi
+                        <span>12</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        Book without credit card
+                        <span>230</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        No prepayment
+                        <span>12</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="acts">
+            <div>
+                <h4 class="title-1">Activities</h4>
+                <form>
+                    <div>
+                        <input type="checkbox" />
+                        Fishing
+                        <span>200</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        Hiking
+                        <span>100</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        Beach
+                        <span>15</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        Cycling
+                        <span>12</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        Sauna
+                        <span>230</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" />
+                        Night lights
+                        <span>12</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div style="float: right; max-width: 900px; margin-right: 100px">
+        <h2>Melbourne : 2,582 search results found</h2>
+        <div>
+            <form>
+                <input type="text" placeholder="Our top picks" />
+                <input type="text" placeholder="Hotel and apartments" />
+                <input type="text" placeholder="Residence" />
+                <input type="text" placeholder="Resort" />
+                <input type="text" placeholder="Shared Space" />
+            </form>
+        </div>
+        <div>
+            <form>
+                
+                <select>
+                    <option>Recommended</option></p>
+                    <option>option 1</option>
+                    <option>option 1</option>
+                </select>
+            </form>
+            <br>
+        </div>
+
+        <div class="img1">
+            <div>
+                
+                
+                <div>
+                    <div style="float: left">
+                        <img src="https://images.trvl-media.com/hotels/8000000/7950000/7945600/7945515/e131035d_b.jpg" alt="apartment" class="apt" width="100%">
+                    </div>
+                    <div style="display: inline-block; width: 28%">
+                        <div class="foo">
+                        <h2>Lakeside Motel Warefront</h2>
+                        <span>
+                            <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                        </span>
+                        <span>
+                            <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                        </span>
+                        <span>
+                            <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                        </span>
+                        <span>
+                            <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                        </span>
+                        <span>
+                            <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                        </span>
+                        <span>4.5 (1200 Reviews)</span>
+                        <div>
+                            <h4>Live a little and celebrate with champagne</h4>
+                        <div>
+                                <p>Reats include a glass of French champagne, parking and a late<br> checkout. Gym included. Flexible cancellation applies</p>
+                            </div>
+                            <div>
+                                <input type="button" value="See availability">
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div style="float: right">
+                    <div>
+                        <input type="button" value="Book now and receive 15% off">
+                    </div><br>
+                    <div>
+                        <input type="text" placeholder="5% off">
+                    </div>
+                    <p>1 room 2 days</p>
+                    <del>$150</del> 
+                    <span>
+                        $130
+                    </span>
+                    <p>includes taxes and fees</p>
+                </div>
+            </div>
+            <div>
+                <img src="https://tavira-vacations-apartments.hotelmix.es/data/Photos/OriginalPhoto/10879/1087969/1087969831/Tavira-Vacations-Apartments-Exterior.JPEG" alt="apartment" width="200"; height="150" class="apt">
+                
+                    <div>
+                    <div>
+                    <h2>Julia Dens Resort</h2>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>4.5 (1200 Reviews)</span>
+                    <div>
+                        <h4>Live a little and celebrate with champagne</h4>
+                    <div>
+                            <p>Reats include a glass of French champagne, parking and a late<br> checkout. Gym included. Flexible cancellation applies</p>
+                        </div>
+                        <div>
+                            <input type="button" value="See availability">
+                        </div>
+                        <br>
+                    </div>
+                
+                
+                    <div>
+                        <br>
+                       
+                        <p>1 room 2 days</p>
+                        
+                        <span>
+                            $240
+                        </span>
+                        <p>includes taxes and fees</p>
+                    </div>
+        </div>
+      
+        
+        
+        <div>
+            <div>
+                <img src="https://www.vrbo.com/vacation-ideas/wp-content/uploads/5PawKLQgzKeBwpNYlCFwVq/8033a06e92ee7456b46dc69fe42ac59d/Hero_-_A_luxury_condo_rental_s_richly_furnished_living_area__along_with_its_balcony_with_city_and_mountain_views.jpg" alt="apartment" width="200"; height="150" class="apt">
+                
+                    <div>
+                    <div>
+                    <h2>Aghnim Scepter Hotel</h2>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>4.5 (1200 Reviews)</span>
+                    <div>
+                        <h4>Live a little and celebrate with champagne</h4>
+                    <div>
+                            <p>Reats include a glass of French champagne, parking and a late<br> checkout. Gym included. Flexible cancellation applies</p>
+                        </div>
+                        <div>
+                            <input type="button" value="See availability">
+                        </div><br>
+                        
+                        <div>
+                            <input type="button" value="Receive 30% discount in a restaurant">
+                        </div>
+                        <br>
+                    </div>
+                
+                
+                    <div>
+                        <br>
+                       
+                        <p>1 room 2 days</p>
+                        
+                        <span>
+                            $300
+                        </span>
+                        <p>includes taxes and fees</p>
+                    </div>
+        </div>
+ 
+
+        
+        <div>
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_rslTZfKOi2OY8qt33Hgq_8K19kpu4A4ARw&usqp=CAU" alt="apartment" width="200"; height="150" class="apt">
+                
+                    <div>
+                    <div>
+                    <h2>Marineford Hotel</h2>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>4.5 (1200 Reviews)</span>
+                    <div>
+                        <h4>Live a little and celebrate with champagne</h4>
+                    <div>
+                            <p>Reats include a glass of French champagne, parking and a late<br> checkout. Gym included. Flexible cancellation applies</p>
+                        </div>
+                        <div>
+                            <input type="button" value="See availability">
+                        </div>
+                        <br>
+                    </div>
+                
+                
+                    <div>
+                        <br>
+                       
+                        <p>1 room 2 days</p>
+                        
+                        <span>
+                            $120
+                        </span>
+                        <p>includes taxes and fees</p>
+                    </div>
+        </div>
+     
+
+        
+        <div>
+            <div>
+                <img src="https://miarentals.com/miami-vacation-rental-photos/1/listing_823/1-sunny-isles-vacation-apartment-2min-from-the-beach.jpg" alt="apartment" width="200"; height="150" class="apt">
+                
+                    <div>
+                    <div>
+                    <h2>Shanghai Open House</h2>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>4.5 (1200 Reviews)</span>
+                    <div>
+                        <h4>Live a little and celebrate with champagne</h4>
+                    <div>
+                            <p>Reats include a glass of French champagne, parking and a late<br> checkout. Gym included. Flexible cancellation applies</p>
+                        </div>
+                        <div>
+                            <input type="button" value="See availability">
+                        </div>
+                        <br>
+                    </div>
+                
+                
+                    <div>
+                        <br>
+                       
+                        <p>1 room 2 days</p>
+                        
+                        <span>
+                            $145
+                        </span>
+                        <p>includes taxes and fees</p>
+                    </div>
+        </div>
+        
+
+        
+        <div>
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKFyTzhJWd8A5LMHf91r7cwUgPQYNLqETWyA&usqp=CAU" alt="apartment" width="200"; height="150" class="apt">
+                
+                    <div>
+                    <div>
+                    <h2>Ocean Waves Resort</h2>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>4.5 (1200 Reviews)</span>
+                    <div>
+                        <h4>Live a little and celebrate with champagne</h4>
+                    <div>
+                            <p>Reats include a glass of French champagne, parking and a late<br> checkout. Gym included. Flexible cancellation applies</p>
+                        </div>
+                        <div>
+                            <input type="button" value="See availability">
+                        </div>
+                        <br>
+                    </div>
+                
+                
+                    <div>
+                        <br>
+                       
+                        <p>1 room 2 days</p>
+                        
+                        <span>
+                            $310
+                        </span>
+                        <p>includes taxes and fees</p>
+                    </div>
+        </div>
+       
+
+   
+        <div>
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgwEM5KyFc1Qh6LsSB8rW9F3_AbuQ5KdcLQQakdzC1bnHQNAM7cZaKy_OZZVICOMifwDg&usqp=CAU" alt="apartment" width="200"; height="150" class="apt">
+                
+                    <div>
+                    <div>
+                    <h2>Miami City frontier</h2>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>4.5 (1200 Reviews)</span>
+                    <div>
+                        <h4>Live a little and celebrate with champagne</h4>
+                    <div>
+                            <p>Reats include a glass of French champagne, parking and a late<br> checkout. Gym included. Flexible cancellation applies</p>
+                        </div>
+                        <div>
+                            <input type="button" value="See availability">
+                        </div><br>
+                        <div>
+                            <div>
+                                <input type="text" placeholder="Receive 30% discount on a restaurant">
+                            </div><br>
+                            <div>
+                                <input type="text" placeholder="15% off">
+                            </div>
+                            <p>1 room 2 days</p>
+                            <del>$200</del> 
+                            <span>
+                                $190
+                            </span>
+                            <p>includes taxes and fees</p>
+                        </div>
+            </div>
+                      
+                    </div>
+                
+                
+                    <div>
+                        <br>
+                       
+                        <p>1 room 2 days</p>
+                        
+                        <span>
+                            $240
+                        </span>
+                        <p>includes taxes and fees</p>
+                    </div>
+        </div>
+    
+
+        <br>
+        <div>
+            <div>
+                <img src="https://www.parisperfect.com/blog/wp-content/uploads/2019/06/Two-Bedroom-Paris-Vacation-Rentals-that-will-Give-you-Real-Estate-Envy-by-Paris-Perfect5.jpg" alt="apartment" width="200"; height="150" class="apt">
+                
+                    <div>
+                    <div>
+                    <h2>Lakeside Motel Warefront</h2>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>
+                        <span style='color: #F2994A; font-size:20px;'>&#9733;</span>
+                    </span>
+                    <span>4.5 (1200 Reviews)</span>
+                    <div>
+                        <h4>Live a little and celebrate with champagne</h4>
+                    <div>
+                            <p>Reats include a glass of French champagne, parking and a late<br> checkout. Gym included. Flexible cancellation applies</p>
+                        </div>
+                        <div>
+                            <input type="button" value="See availability">
+                        </div>
+                       
+                    </div>
+                
+                
+                    <br>
+                            <div>
+                                <input type="text" placeholder="15% off">
+                            </div>
+                            <p>1 room 2 days</p>
+                            <del>$320</del> 
+                            <span>
+                                $300
+                            </span>
+                            <p>includes taxes and fees</p>
+                        </div>
+            </div>
+                        <br>
+                    </div>
+                    <div class="load-b">
+                        
+                          <button>Load more results</button>
+                        </div>
+                    <br>
+
+                    <div class="covid-p">
+                                
+                        <p>Check the latest COVID-19 restrictions before you travel.Learn more</p>
+                                     
+                     </div>
+                     <br>
+                     <div class="row">
+                        <div class="column" >
+                            
+                          <h2>my Dream Place</h2>
+                          <p>your next goal companion for travel</p>
+                        </div>
+                        <div class="column">
+                          <h2>Company</h2>
+                          <p>About</p>
+                          <p>Jobs</p>
+                          <p>Newsroom</p>
+                          <p>Advertising</p>
+                          <p>Contact us</p>
+                        </div>
+                        <div class="column" >
+                          <h2>Explore</h2>
+                          <p>Privacy Policy</p>
+                          <p>Terms of use</p>
+                          <p>Accesibility</p>
+                          <p>Reward system policy</p>
+                        </div>
+                        <div class="column" >
+                          <h2>Help</h2>
+                          <p>Cancel your bookings</p>
+                          <p>Use Coupon</p>
+                          <p>Refund Policies</p>
+                          <p>International Travel Documents</p>
+                          
+                        </div>
+                      </div>
+                   
+                    
+
+                    
+                        
+                     
+                        
+                             
+                
+                    
+        
+    </div>
+    
+
+
+
+    
+</body>
+</html>
